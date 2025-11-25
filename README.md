@@ -16,6 +16,7 @@ This is a fork of [mjollnir14/gnome-shell-extension-zenbook-duo](https://github.
 
 <!-- Use ✅ for supported, ❔ for unknown/unconfirmed, ❌ for unsupported -->
 
+
 ## Installation
 
 This extension requires the [asus-wmi-screenpad](https://github.com/Plippo/asus-wmi-screenpad) kernel module, please install this first.
@@ -29,8 +30,7 @@ cd gnome-shell-extension-zenbook-duo
 make install
 ```
 
-Make sure to 
-**logout** and **login**!
+Make sure to **logout** and **login**!
 
 Open "Extension" app, enable gnome-shell-extension-zenbook-duo.
 (In case of problems try another logout -> login)
@@ -43,6 +43,7 @@ It will also add functionality to some of your Asus hardware keys like Toggle-Sc
 
 It will **not** link the brightness hardware keys to Screenpad display (as of now).
 
+
 ## Debugging
 
 To test if asus-wmi-screenpad dependency is working, run the following in a terminal
@@ -53,3 +54,7 @@ echo 255 > '/sys/class/leds/asus::screenpad/brightness'
 
 This should have set screenpad brightness to max (or less if you replace 255 by lower value). If this is not working, check the kernel module setup of asus-wmi-screenpad.
 
+
+If above is working but extension still does not work (especially after updates), then try:
+- delete extension in extension manager
+- delete/rename your previously downloaded gnome-shell-extension-zenbook-duo folder and start with with a fresh install. (you may also try `git clone` instead of curl)
