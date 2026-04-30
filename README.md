@@ -58,3 +58,15 @@ This should have set screenpad brightness to max (or less if you replace 255 by 
 If above is working but extension still does not work (especially after updates), then try:
 - delete extension in extension manager
 - delete/rename your previously downloaded gnome-shell-extension-zenbook-duo folder and start with with a fresh install. (you may also try `git clone` instead of curl)
+
+
+## Other usefull hints for Zenbook Duo
+
+#### Touchscreen mapping of screenpad
+To map the screenpad touchscreen to correct display, run
+
+```
+# This is for UX8402 (vendor:product id is case sensitive for gsettings!)
+gsettings set org.gnome.desktop.peripherals.touchscreen:/org/gnome/desktop/peripherals/touchscreens/04f3:2f2a/ output "['BOE', '0x0a8d', '0x00000000', 'DP-1']"
+```
+More details [here](https://unix.stackexchange.com/a/785627/491910).
