@@ -1,283 +1,194 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- Created with Cambalache 0.96.1 -->
+<!-- Created with Cambalache 1.0 -->
 <interface>
   <!-- interface-name prefs.ui -->
   <requires lib="gtk" version="4.0"/>
   <requires lib="libadwaita" version="1.0"/>
   <object class="AdwPreferencesPage" id="prefs_widget">
     <property name="can-focus">True</property>
+    <property name="width-request">400</property>
     <child>
-      <object class="GtkScrolledWindow">
-        <property name="child">
-          <object class="GtkViewport">
-            <property name="child">
+      <object class="AdwPreferencesGroup">
+        <property name="title" translatable="yes">Extension status</property>
+        <child>
+          <object class="GtkFrame">
+            <child>
               <object class="GtkBox">
-                <property name="margin-bottom">36</property>
-                <property name="margin-end">36</property>
-                <property name="margin-start">36</property>
-                <property name="margin-top">36</property>
+                <property name="margin-bottom">5</property>
+                <property name="margin-end">5</property>
+                <property name="margin-start">5</property>
+                <property name="margin-top">5</property>
                 <property name="orientation">vertical</property>
-                <property name="spacing">8</property>
                 <child>
-                  <object class="GtkFrame">
-                    <child>
-                      <object class="GtkBox">
-                        <property name="orientation">vertical</property>
-                        <child>
-                          <object class="GtkLabel" id="status_label">
-                            <property name="label">Extension status</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkLabel" id="status_description">
-                            <property name="label">Status description</property>
-                            <property name="margin-top">3</property>
-                            <style>
-                              <class name="dim-label"/>
-                            </style>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkLabel" id="status_last_result">
-                            <property name="label">Last action result</property>
-                            <property name="margin-top">9</property>
-                            <style>
-                              <class name="warning"/>
-                            </style>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="status_action_btn">
-                            <property name="halign">end</property>
-                            <property name="label">Run</property>
-                            <property name="margin-top">5</property>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
+                  <object class="GtkLabel" id="status_label">
+                    <property name="label">Extension status</property>
                   </object>
                 </child>
                 <child>
-                  <object class="GtkFrame">
-                    <property name="child">
-                      <object class="GtkListBox">
-                        <child>
-                          <object class="GtkListBoxRow">
-                            <property name="child">
-                              <object class="GtkBox">
-                                <property name="margin-bottom">12</property>
-                                <property name="margin-end">12</property>
-                                <property name="margin-start">12</property>
-                                <property name="margin-top">12</property>
-                                <property name="spacing">32</property>
-                                <child>
-                                  <object class="GtkBox">
-                                    <property name="orientation">vertical</property>
-                                    <property name="spacing">12</property>
-                                    <child>
-                                      <object class="GtkLabel">
-                                        <property name="halign">start</property>
-                                        <property name="label" translatable="yes">MyASUS Key Command</property>
-                                      </object>
-                                    </child>
-                                    <child>
-                                      <object class="GtkLabel">
-                                        <property name="halign">start</property>
-                                        <property name="label" translatable="yes">This command is executed when you press the MyASUS key (looks like //])</property>
-                                        <style>
-                                          <class name="dim-label"/>
-                                        </style>
-                                      </object>
-                                    </child>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="GtkEntry" id="entry_myasus_cmd">
-                                    <property name="focusable">1</property>
-                                    <property name="hexpand">1</property>
-                                    <property name="width-request">200</property>
-                                  </object>
-                                </child>
-                              </object>
-                            </property>
-                            <property name="focusable">1</property>
-                            <property name="selectable">0</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkListBoxRow">
-                            <property name="child">
-                              <object class="GtkBox">
-                                <property name="margin-bottom">12</property>
-                                <property name="margin-end">12</property>
-                                <property name="margin-start">12</property>
-                                <property name="margin-top">12</property>
-                                <property name="spacing">32</property>
-                                <child>
-                                  <object class="GtkBox">
-                                    <property name="hexpand">1</property>
-                                    <property name="orientation">vertical</property>
-                                    <property name="spacing">12</property>
-                                    <child>
-                                      <object class="GtkLabel">
-                                        <property name="halign">start</property>
-                                        <property name="label" translatable="yes">Screenshot type</property>
-                                        <property name="vexpand">1</property>
-                                      </object>
-                                    </child>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="GtkBox">
-                                    <child>
-                                      <object class="GtkToggleButton" id="screenshot_screen">
-                                        <property name="focusable">1</property>
-                                        <property name="label" translatable="yes">Screen</property>
-                                        <property name="receives-default">1</property>
-                                      </object>
-                                    </child>
-                                    <child>
-                                      <object class="GtkToggleButton" id="screenshot_window">
-                                        <property name="focusable">1</property>
-                                        <property name="group">screenshot_screen</property>
-                                        <property name="label" translatable="yes">Window</property>
-                                        <property name="receives-default">1</property>
-                                      </object>
-                                    </child>
-                                    <child>
-                                      <object class="GtkToggleButton" id="screenshot_selection">
-                                        <property name="focusable">1</property>
-                                        <property name="group">screenshot_screen</property>
-                                        <property name="label" translatable="yes">Selection</property>
-                                        <property name="receives-default">1</property>
-                                      </object>
-                                    </child>
-                                    <child>
-                                      <object class="GtkToggleButton" id="screenshot_interactive">
-                                        <property name="focusable">1</property>
-                                        <property name="group">screenshot_screen</property>
-                                        <property name="label" translatable="yes">Interactive</property>
-                                        <property name="receives-default">1</property>
-                                      </object>
-                                    </child>
-                                    <style>
-                                      <class name="linked"/>
-                                    </style>
-                                  </object>
-                                </child>
-                              </object>
-                            </property>
-                            <property name="focusable">1</property>
-                            <property name="selectable">0</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkListBoxRow">
-                            <property name="child">
-                              <object class="GtkBox">
-                                <property name="margin-bottom">12</property>
-                                <property name="margin-end">12</property>
-                                <property name="margin-start">12</property>
-                                <property name="margin-top">12</property>
-                                <property name="spacing">32</property>
-                                <child>
-                                  <object class="GtkBox">
-                                    <property name="hexpand">1</property>
-                                    <property name="orientation">vertical</property>
-                                    <property name="spacing">12</property>
-                                    <child>
-                                      <object class="GtkLabel">
-                                        <property name="halign">start</property>
-                                        <property name="label" translatable="yes">Include cursor in screenshots</property>
-                                      </object>
-                                    </child>
-                                    <child>
-                                      <object class="GtkLabel">
-                                        <property name="halign">start</property>
-                                        <property name="label" translatable="yes">This option is ignored when the screenshot type is set to 'Selection'</property>
-                                        <style>
-                                          <class name="dim-label"/>
-                                        </style>
-                                      </object>
-                                    </child>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="GtkSwitch" id="switch_screenshot_cursor">
-                                    <property name="focusable">1</property>
-                                    <property name="valign">center</property>
-                                  </object>
-                                </child>
-                              </object>
-                            </property>
-                            <property name="focusable">1</property>
-                            <property name="selectable">0</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkListBoxRow">
-                            <property name="child">
-                              <object class="GtkBox">
-                                <property name="margin-bottom">12</property>
-                                <property name="margin-end">12</property>
-                                <property name="margin-start">12</property>
-                                <property name="margin-top">12</property>
-                                <property name="spacing">32</property>
-                                <child>
-                                  <object class="GtkBox">
-                                    <property name="hexpand">1</property>
-                                    <property name="orientation">vertical</property>
-                                    <property name="spacing">12</property>
-                                    <child>
-                                      <object class="GtkLabel">
-                                        <property name="halign">start</property>
-                                        <property name="label" translatable="yes">Uninstall additional files</property>
-                                      </object>
-                                    </child>
-                                    <child>
-                                      <object class="GtkLabel">
-                                        <property name="halign">start</property>
-                                        <property name="label" translatable="yes">If you want to remove the extension, it's recommended to uninstall the additional files that were installed along with it</property>
-                                        <style>
-                                          <class name="dim-label"/>
-                                        </style>
-                                      </object>
-                                    </child>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="button_uninstall">
-                                    <property name="focusable">1</property>
-                                    <property name="label">Uninstall</property>
-                                    <property name="valign">center</property>
-                                  </object>
-                                </child>
-                              </object>
-                            </property>
-                            <property name="focusable">1</property>
-                            <property name="selectable">0</property>
-                          </object>
-                        </child>
-                      </object>
-                    </property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="version_label">
-                    <property name="halign">end</property>
-                    <property name="label" translatable="yes">Version number placeholder</property>
+                  <object class="GtkLabel" id="status_description">
+                    <property name="label">Status description</property>
+                    <property name="margin-top">3</property>
                     <style>
                       <class name="dim-label"/>
                     </style>
                   </object>
                 </child>
+                <child>
+                  <object class="GtkLabel" id="status_last_result">
+                    <property name="label">Last action result</property>
+                    <property name="margin-top">9</property>
+                    <style>
+                      <class name="warning"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="status_action_btn">
+                    <property name="halign">end</property>
+                    <property name="label">Run</property>
+                    <property name="margin-top">5</property>
+                  </object>
+                </child>
               </object>
-            </property>
+            </child>
           </object>
-        </property>
-        <property name="focusable">1</property>
-        <property name="hscrollbar-policy">never</property>
-        <property name="propagate-natural-height">1</property>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="description" translatable="yes">This command is executed when you press the MyASUS key (looks like //])</property>
+        <property name="title" translatable="yes">MyASUS Key Command</property>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Command</property>
+            <property name="use-underline">True</property>
+            <child>
+              <object class="GtkEntry" id="entry_myasus_cmd">
+                <property name="focusable">1</property>
+                <property name="hexpand">1</property>
+                <property name="width-request">200</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title" translatable="yes">Screenshots</property>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Type</property>
+            <property name="use-underline">True</property>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="margin-bottom">12</property>
+                    <property name="margin-end">12</property>
+                    <property name="margin-start">12</property>
+                    <property name="margin-top">12</property>
+                    <property name="spacing">32</property>
+                    <child>
+                      <object class="GtkBox">
+                        <child>
+                          <object class="GtkToggleButton" id="screenshot_screen">
+                            <property name="focusable">1</property>
+                            <property name="label" translatable="yes">Screen</property>
+                            <property name="receives-default">1</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton" id="screenshot_window">
+                            <property name="focusable">1</property>
+                            <property name="group">screenshot_screen</property>
+                            <property name="label" translatable="yes">Window</property>
+                            <property name="receives-default">1</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton" id="screenshot_selection">
+                            <property name="focusable">1</property>
+                            <property name="group">screenshot_screen</property>
+                            <property name="label" translatable="yes">Selection</property>
+                            <property name="receives-default">1</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton" id="screenshot_interactive">
+                            <property name="focusable">1</property>
+                            <property name="group">screenshot_screen</property>
+                            <property name="label" translatable="yes">Interactive</property>
+                            <property name="receives-default">1</property>
+                          </object>
+                        </child>
+                        <style>
+                          <class name="linked"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+                <property name="focusable">1</property>
+                <property name="selectable">0</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Include cursor in screenshots</property>
+            <property name="use-underline">True</property>
+            <child>
+              <object class="GtkSwitch" id="switch_screenshot_cursor">
+                <property name="focusable">1</property>
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="halign">start</property>
+            <property name="label" translatable="yes">This option is ignored when the screenshot type is set to 'Selection'</property>
+            <style>
+              <class name="dim-label"/>
+            </style>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="description" translatable="yes">If you want to remove the extension, it's recommended to uninstall the additional files that were installed along with it</property>
+        <property name="title" translatable="yes">Cleanup</property>
+        <child>
+          <object class="AdwActionRow">
+            <property name="title" translatable="yes">Uninstall additional files</property>
+            <property name="use-underline">True</property>
+            <child>
+              <object class="GtkButton" id="button_uninstall">
+                <property name="focusable">1</property>
+                <property name="label">Uninstall</property>
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <child>
+          <object class="GtkLabel" id="version_label">
+            <property name="halign">end</property>
+            <property name="label" translatable="yes">Version number placeholder</property>
+            <style>
+              <class name="dim-label"/>
+            </style>
+          </object>
+        </child>
       </object>
     </child>
   </object>
